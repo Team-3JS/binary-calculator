@@ -8,4 +8,11 @@ public class HelloWorldController {
     public String HelloWorld(){
         return "Hello World";
     }
+
+    @GetMapping("/guava-example")
+    public String guavaExample(){
+
+        return "";
+    }
+
 }
