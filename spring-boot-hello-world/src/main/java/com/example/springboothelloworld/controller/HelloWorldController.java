@@ -22,4 +22,12 @@ public class HelloWorldController {
         return result;
     }
 
+    @GetMapping("/commons-example")
+    public String commonsExample() {
+        String toBeCapitalized = "cal poly pomona";
+        String capitalizedResult = WordUtils.capitalize(toBeCapitalized);
+        return toBeCapitalized + " capitalized into " + capitalizedResult;
+
+    }
+
 }
