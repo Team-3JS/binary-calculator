@@ -3,6 +3,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.google.common.primitives.Bytes;
 import org.apache.commons.text.WordUtils;
+import org.apache.commons.math3.fraction.Fraction;
+import java.util.*;
 
 @RestController
 public class HelloWorldController {
@@ -23,6 +25,16 @@ public class HelloWorldController {
         return result;
     }
 
+    @GetMapping("/api/rand")
+    public String api2()
+    {
+        Random r = new Random();
+        double randomValue = 1 * r.nextDouble();
+        Fraction a = ToFraction(randomValue);
+        String retval = a.toString();
+        return "<div class=\"center\" align=\"center\">" + "<h1>Here's a random fraction: " +  randomValue + " = " + retval + "</h1>";
+    }
+
     @GetMapping("/commons-example")
     public String commonsExample() {
         String toBeCapitalized = "cal poly pomona";
@@ -31,4 +43,31 @@ public class HelloWorldController {
 
     }
 
+
+    public static Fraction ToFraction(double randomValue)
+    {
+        Fraction fraction = new Fraction(randomValue);
+        return fraction;
+    }
+
+    public static String intToBinary(int a)
+    {
+        int b = a;
+        String retval = "";
+        while(b!= 0)
+        {
+            if(b %2 == 1)
+            {
+                retval = "1" + retval;
+                b--;
+                b/=2;
+            }
+            else
+            {
+                retval = "0" + retval;
+                b/=2;
+            }
+        }
+        return retval;
+    }
 }
