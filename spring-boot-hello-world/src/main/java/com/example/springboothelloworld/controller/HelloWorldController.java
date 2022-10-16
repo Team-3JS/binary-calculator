@@ -43,31 +43,64 @@ public class HelloWorldController {
 
     }
 
-
     public static Fraction ToFraction(double randomValue)
     {
         Fraction fraction = new Fraction(randomValue);
         return fraction;
     }
 
-    public static String intToBinary(int a)
-    {
-        int b = a;
-        String retval = "";
-        while(b!= 0)
-        {
-            if(b %2 == 1)
-            {
-                retval = "1" + retval;
-                b--;
-                b/=2;
+    public static String intToBinary(int a){
+        if(a > 0){
+            int b = a;
+            String retval = "";
+            while(b!= 0){
+                if(b %2 == 1){
+                    retval = "1" + retval;
+                    b--;
+                    b/=2;
+                }
+                else{
+                    retval = "0" + retval;
+                    b/=2;
+                }
             }
-            else
-            {
-                retval = "0" + retval;
-                b/=2;
-            }
+            retval = "0" + retval;
+            return retval;
         }
-        return retval;
+        else if(a < 0){
+            int b = a * -1;
+            int firstval = 1;
+            int places = 1;
+            while(firstval< b){
+                places ++;
+                firstval*=2;
+            }
+
+            b = firstval - b;
+            String retval = "";
+            while(b!= 0){
+                if(b %2 == 1){
+                    retval = "1" + retval;
+                    b--;
+                    b/=2;
+                }
+                else{
+                    retval = "0" + retval;
+                    b/=2;
+                }
+            }
+
+            while(retval.length() < places -1){
+                retval = "0" + retval;
+            }
+
+            retval = "1" + retval;
+            return retval;
+
+        }
+        else
+        {
+            return "00";
+        }
     }
 }
