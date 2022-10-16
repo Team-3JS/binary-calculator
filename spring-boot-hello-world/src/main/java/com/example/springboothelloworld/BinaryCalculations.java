@@ -68,6 +68,37 @@ public class BinaryCalculations
         }
     }
 
+    public static String binaryAdd(String binaryNum1, String binaryNum2){
+        String result;
+        int integerResult = Integer.parseInt(binaryNum1, 2) + Integer.parseInt(binaryNum2, 2);
+        result = Integer.toBinaryString(integerResult);
+        return result;
+    }
+
+    public static String binarySubtract(String binaryNum1, String binaryNum2){
+        String result;
+        int integerResult = Integer.parseInt(binaryNum1, 2) - Integer.parseInt(binaryNum2, 2);
+        result = Integer.toBinaryString(integerResult);
+        return result;
+    }
+
+    public static String binaryMultiply(String binaryNum1, String binaryNum2){
+        String result;
+        int integerResult = Integer.parseInt(binaryNum1, 2) * Integer.parseInt(binaryNum2, 2);
+        result = Integer.toBinaryString(integerResult);
+        return result;
+    }
+
+    public static String binaryDivide(String binaryNum1, String binaryNum2){
+        String result;
+        if(Integer.parseInt(binaryNum2) == 0)
+            return "Cannot divide by zero";
+
+        int integerResult = Integer.parseInt(binaryNum1, 2) / Integer.parseInt(binaryNum2, 2);
+        result = Integer.toBinaryString(integerResult);
+        return result;
+    }
+
      /*
     public static void main(String[] args)
     {
