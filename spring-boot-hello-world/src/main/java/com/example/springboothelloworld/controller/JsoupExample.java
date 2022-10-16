@@ -1,4 +1,4 @@
-package com.codacum.springboothelloworld;
+package com.example.springboothelloworld.controller;
 
 import java.io.IOException;
 import org.jsoup.Jsoup;
