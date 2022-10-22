@@ -1,20 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="binaryCalculator.css" type="text/css" />
-    <title>Binary Calculator Test</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="binaryCalculator.css">
+    <title>Calculator</title>
 </head>
+
 <body>
-<div id="res"></div>
-<div id="btns">
-    <button id="btn0">0</button> <button id="btn1">1</button>
-    <button id="btnClr">C</button> <button id="btnEql">=</button>
-    <button id="btnSum">+</button> <button id="btnSub">-</button>
-    <button id="btnMul">*</button> <button id="btnDiv">/</button>
+<div class="wrapper">
+    <div class="content">
+        <div class="left-content">
+            <h1>Binary Calculator</h1>
+            <div class="selection">
+                <h5>Select Calculator</h5>
+                <div class="calculators">
+                    <div class="cal-one">
+                        <img src="img/home.png">
+                    </div>
+                    <div class="cal-two">
+                        <a href="https://www.youtube.com/"> <img src="img/calculator.png"></a>
+                    </div>
+                    <div class="cal-three">
+                        <h4>TBD</h4>
+                    </div>
+                    <div class="cal-four">
+                        <h4>TBD</h4>
+                    </div>
+                    <div class="cal-five">
+                        <h4>TBD</h4>
+                    </div>
+                    <div class="cal-six">
+                        <h4>TBD</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-content">
+            <div class="header-r">
+                <h1>TEAM 3JS</h1>
+            </div>
+            <div class="calculations">
+
+                <div class="operand-1">
+                    <div class="input">
+                        <label>First Operand</label><br>
+                        <input type="text" name="first_operand" id-="first_operand" placeholder="01101111...">
+                    </div>
+                </div>
+                <div class="operator">
+                    <div class="input">
+                        <label for="operators">Operator</label><br>
+                        <select name="operators" id="operators">
+                            <option value="convert">Convert</option>
+                            <option value="addition">Addition</option>
+                            <option value="substraction">Substraction</option>
+                            <option value="multiplication">Multiplication</option>
+                            <option value="division">Division</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="operand-2">
+                    <div class="input">
+                        <label>Second Operand</label><br>
+                        <input type="text" name="second_operand" id-="second_operand" placeholder="01101111...">
+                    </div>
+                </div>
+                <div class="submit">
+                    <input type="submit" name="submit_button" id="submit" value="Calculate">
+                </div>
+                <div class="result">
+                    <div class="result-1">
+                        <label class="result_name" for=>Result</label><br>
+                        <input type="text " name="resultt" id="resultt">
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
 </div>
-<script src="binarycalculator.js" type="text/javascript"></script>
+    <!--<script>
+        $("#submit").click(function() {
+            $("#resultt").css({
+                "display": "block",
+                "margin-left": "50px"
+            });
+        })
+    </script>-->
 </body>
+
 </html>
