@@ -1,8 +1,8 @@
-package com.example.springboothelloworld;
+package com.example.springbootbinarycalculator;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-import com.example.springboothelloworld.controller.HelloWorldController;
+import com.example.springbootbinarycalculator.controller.HelloWorldController;
 
 public class HelloWorldControllerTest {
 

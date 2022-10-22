@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/binary-calculator.iml" filepath="$PROJECT_DIR$/.idea/binary-calculator.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spring-boot-hello-world/spring-boot-hello-world.iml" filepath="$PROJECT_DIR$/spring-boot-hello-world/spring-boot-hello-world.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-hello-world/spring-boot-binary-calculator.iml" filepath="$PROJECT_DIR$/spring-boot-hello-world/spring-boot-binary-calculator.iml" />
     </modules>
   </component>
 </project>

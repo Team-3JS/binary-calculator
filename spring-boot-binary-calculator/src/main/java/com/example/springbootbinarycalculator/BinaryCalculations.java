@@ -1,4 +1,4 @@
-package com.example.springboothelloworld;
+package com.example.springbootbinarycalculator;
 
 public class BinaryCalculations 
 {

@@ -1,4 +1,4 @@
-package com.example.springboothelloworld.controller;
+package com.example.springbootbinarycalculator.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.google.common.primitives.Bytes;

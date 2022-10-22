@@ -1,4 +1,4 @@
-package com.example.springboothelloworld;
+package com.example.springbootbinarycalculator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

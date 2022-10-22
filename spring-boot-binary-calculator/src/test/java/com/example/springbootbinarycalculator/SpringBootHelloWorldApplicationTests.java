@@ -1,4 +1,4 @@
-package com.example.springboothelloworld;
+package com.example.springbootbinarycalculator;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
