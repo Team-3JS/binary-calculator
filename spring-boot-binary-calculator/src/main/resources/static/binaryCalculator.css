@@ -1,6 +1,7 @@
-
 body {
   margin: 0px auto;
+  background-color: #001f3f;
+  font-family: Calibri;
 }
 
 .wrapper {
@@ -49,6 +50,7 @@ body {
 }
 
 .cal-one {
+  position: fixed;
   width: 70px;
   height: 70px;
   margin-left: 25px;
@@ -113,11 +115,12 @@ body {
 }
 
 .calculations {
+ border-radius: 20px;
   width: 75%;
   height: 70%;
   margin-left: 170px;
   margin-top: 50px;
-  background-color: #013d79;
+  background-color: #0b5394;
   /*border: 2px solid #012a53;*/
   /*display: grid;
 grid-template-columns: 1fr 1fr;
@@ -125,6 +128,7 @@ grid-template-rows: 1fr 1fr 1fr;*/
 }
 
 .operand-1 {
+  border-radius: 15px;
   position: fixed;
   margin-left: 20px;
   margin-top: 50px;
@@ -134,8 +138,9 @@ grid-template-rows: 1fr 1fr 1fr;*/
 }
 
 .operand-2 {
+  border-radius: 15px;
   position: fixed;
-  margin-left: 640px;
+  margin-left: 615px;
   margin-top: 50px;
   width: 300px;
   height: 150px;
@@ -143,18 +148,20 @@ grid-template-rows: 1fr 1fr 1fr;*/
 }
 
 .operator {
+  border-radius: 15px;
   position: fixed;
   width: 250px;
   height: 150px;
-  margin-left: 350px;
+  margin-left: 340px;
   margin-top: 50px;
   background-color: #003366;
 }
 
 .result {
+  border-radius: 25px;
   position: fixed;
   margin-left: 180px;
-  margin-top: 255px;
+  margin-top: 300px;
   width: 600px;
   height: 200px;
   background-color: #003366;
@@ -192,10 +199,16 @@ grid-template-rows: 1fr 1fr 1fr;*/
   font-weight: bolder;
 }
 
+.github_link {
+  margin-top: 350px;
+  margin-left: 30px;
+
+}
+
 .submit {
   position: fixed;
   margin-top: 205px;
-  margin-left: 410px;
+  margin-left: 395px;
 }
 
 .submit input {
