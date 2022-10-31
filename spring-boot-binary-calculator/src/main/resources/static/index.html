@@ -15,12 +15,12 @@
     <div class="wrapper">
         <div class="content">
             <div class="left-content">
-                <h1>Binary Calculator</h1>
+                <h2>Binary/Decimal/Hex/Octal Calculator-Converter</h2>
                 <div class="selection">
                     <h5>Select Calculator</h5>
                     <div class="calculators">
                         <div class="cal-one">
-                            <img src="img/home.png">
+                            <a href = "" > <img src="img/">
                         </div>
                         <div class="cal-two">
                             <a href="https://www.youtube.com/"> <img src="img/calculator.png"></a>
@@ -44,6 +44,7 @@
                 <div class="header-r">
                     <h1>TEAM 3JS</h1>
                 </div>
+                <form name="loginForm" action="calculateServlet" method="post">
                 <div class="calculations">
 
                     <div class="operand-1">
@@ -58,7 +59,7 @@
                             <select name="operators" id="operators">
                                 <option value="convert">Convert</option>
                                 <option value="addition">Addition</option>
-                                <option value="substraction">Substraction</option>
+                                <option value="subtraction">Subtraction</option>
                                 <option value="multiplication">Multiplication</option>
                                 <option value="division">Division</option>
                               </select>
@@ -81,9 +82,17 @@
                         </div>
                     </div>
 
-
+                </form>
                 </div>
             </div>
+            <div class = github_link>
+                <a href = "https://github.com/Team-3JS/binary-calculator" >
+                    <img src = "github.png"
+                         height = 65px;
+                         width = 65px;>
+                </a>
+            </div>
+
         </div>
         <!--<script>
             $("#submit").click(function() {
