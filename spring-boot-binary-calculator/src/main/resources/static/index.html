@@ -1,107 +1,220 @@
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="binaryCalculator.css">
-    <title>Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.5/dist/sweetalert2.all.min.js"></script>
+    <title>Document</title>
 </head>
-
-<body>
-    <div class="wrapper">
-        <div class="content">
-            <div class="left-content">
-                <h2>Binary/Decimal/Hex/Octal Calculator-Converter</h2>
-                <div class="selection">
-                    <h5>Select Calculator</h5>
-                    <div class="calculators">
-                        <div class="cal-one">
-                            <a href = "" > <img src="img/">
-                        </div>
-                        <div class="cal-two">
-                            <a href="https://www.youtube.com/"> <img src="img/calculator.png"></a>
-                        </div>
-                        <div class="cal-three">
-                            <h4>TBD</h4>
-                        </div>
-                        <div class="cal-four">
-                            <h4>TBD</h4>
-                        </div>
-                        <div class="cal-five">
-                            <h4>TBD</h4>
-                        </div>
-                        <div class="cal-six">
-                            <h4>TBD</h4>
-                        </div>
+<body style="background-color:#3d4152">
+        <div class="navigation">
+            <div class="menuToggle"></div>
+            <ul>
+                <li class="list"style="--clr:red">
+                   <a href="#"title="Home" id="home">
+                    <span class="icon"><ion-icon name="home" style="margin-top:12px;"></ion-icon></span>
+                    <span class="text">Home</span>
+                   </a>
+                </li>
+                <li class="list active"style="--clr:#f44336">
+                    <a href="#"data-toggle="modal" data-target="#converter-modal">
+                     <span class="icon"><ion-icon name="calculator"style="margin-top:12px;"></ion-icon></span>
+                     <span class="text">Converter</span>
+                    </a>
+                 </li>
+                <li class="list" style="--clr:#ffa117">
+                    <a href="#" title="Binary" id="binary">
+                     <span class="icon"><ion-icon name="calculator"style="margin-top:12px;"></ion-icon></span>
+                     <span class="text">Binary</span>
+                    </a>
+                 </li>
+                 <li class="list" style="--clr:#0fc70f">
+                    <a href="#" title="Hexadecimal" id="hexadecimal">
+                     <span class="icon"><ion-icon name="calculator" style="margin-top:12px;"></ion-icon></span>
+                     <span class="text">Hexadecimal</span>
+                    </a>
+                 </li>
+                 <li class="list" style="--clr:#2196f3">
+                    <a href="#"title="Octal" id="octal">
+                     <span class="icon"><ion-icon name="calculator"style="margin-top:12px;"></ion-icon></span>
+                     <span class="text">Octal</span>
+                    </a>
+                 </li>
+            </ul>
+        </div>
+        <div class="calculation" >
+            <div class="normal-calculator">
+                <div class="header">
+                    <h1>PERFORM NORMAL CALCULATIONS</h1>
+                </div>
+                <div class="input">
+                    <div class="operand">
+                        <label for="first_operand">First Operand</label><br>
+                        <input type="text" name="first_operand" id="first_operand" placeholder="01101111..." min="0" required autocomplete="off">
                     </div>
                 </div>
-            </div>
-            <div class="right-content">
-                <div class="header-r">
-                    <h1>TEAM 3JS</h1>
-                </div>
-                <form name="loginForm" action="calculateServlet" method="post">
-                <div class="calculations">
-
-                    <div class="operand-1">
+                <div class="input">
+                    <div class="operators">
                         <div class="input">
-                            <label for="first_operand">First Operand</label><br>
-                            <input type="text" name="first_operand" id-="first_operand" placeholder="01101111...">
-                        </div>
-                    </div>
-                    <div class="operator">
-                        <div class="input">
-                            <label for="operators">Operator</label><br>
+                            <label for="operators" class="oprt">Operator</label><br>
                             <select name="operators" id="operators">
-                                <option value="convert">Convert</option>
                                 <option value="addition">Addition</option>
                                 <option value="subtraction">Subtraction</option>
                                 <option value="multiplication">Multiplication</option>
                                 <option value="division">Division</option>
-                              </select>
+                            </select>
 
                         </div>
                     </div>
-                    <div class="operand-2">
-                        <div class="input">
-                            <label for="second_operand">Second Operand</label><br>
-                            <input type="text" name="second_operand" id-="second_operand" placeholder="01101111...">
-                        </div>
+                </div>
+                <div class="input">
+                    <div class="operand">
+                        <label for="second_operand">First Operand</label><br>
+                        <input type="text" name="second_operand" id="second_operand" placeholder="01101111..." min="1" required autocomplete="off">
                     </div>
-                    <div class="submit">
-                        <input type="submit" name="submit_button" id="submit" value="Calculate">
+                </div>
+                <div class="result">
+                    <div class="result_calc">
+                        <input type="submit" name="submit" id="submit" min="1" value="calculate">
                     </div>
-                    <div class="result">
-                        <div class="result-1">
-                            <label class="result_name" for=" result ">Result</label><br>
-                            <input type="text " name="resultt" id="resultt">
-                        </div>
-                    </div>
-
-                </form>
+                </div>
+                <div class="resultBox">
+                    <input type="text" name="resultBox" id="resultBox" readonly>
+                    <input type="button" name="steps" id="steps" value="steps" style="width:100px; height:30px; background-color:blue; color:white; cursor:pointer;">
                 </div>
             </div>
-            <div class = github_link>
-                <a href = "https://github.com/Team-3JS/binary-calculator" >
-                    <img src = "github.png"
-                         height = 65px;
-                         width = 65px;>
-                </a>
-            </div>
-
         </div>
-        <!--<script>
-            $("#submit").click(function() {
-                $("#resultt").css({
-                    "display": "block",
-                    "margin-left": "50px"
-                });
-            })
-        </script>-->
-</body>
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="converter-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+      <div class="modal-content cont">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">CHANGE BASES</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+               <div class="input-base">
+                <label for="bases" class="bases">Select base</label><br>
+                <select name="bases" id="bases"style="width:200px;">
+                    <option value="binary">binary</option>
+                    <option value="hexadecimal">hexadecimal</option>
+                    <option value="octal">octal</option>
+                </select>
+               </div>
+               <div class="input-base">
+                <label for="op1" class="op1">number</label><br>
+                <input type="number" name="op1" id="op1"style="width:200px; ">
+            </div>
+            <div class="result-base">
+                <textarea name="result-b" id="result-b"rows="10" cols="50" style="margin-left:20px;">result goes here</textarea>
+            </div>
+        </div>
+        <div class="modal-footer" style="justify-content:space-between">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" style="width:400px;">Close</button>
+          <button type="button" class="btn btn-primary" style=" width:400px;">Calculate</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script>
+            var home = $('#home');
+            var binary = $('#binary');
+            var hex = $('#hexadecimal');
+            var octal = $('#octal');
+            var moda = $('#converter-modal')
+
+            home.on('click',function(){
+                location.reload()
+            })
+            var op1 = $("#first_operand");
+            console.log(op1.val());
+            var op2 = $("#second_operand");
+            console.log(op2.val());
+
+
+           console.log(add(parseInt(op1.val()),parseInt(op2.val())))
+            
+          // result. val()
+          // alert(add(parseInt(op1.val()),parseInt(op2.val())))
+          /* binary.on('click',function(){
+               moda.modal({
+                  show:true
+               });
+           })*/
+
+    function add(num1, num2){
+            return num1 + num2;
+    }
+            
+        </script>
+       
+        <script>
+            const menuToggle = document.querySelector('.menuToggle');
+            const navigation = document.querySelector('.navigation');
+            menuToggle.onclick = function(){
+                navigation.classList.toggle('open');
+            }
+            const list = document.querySelectorAll('.list');
+            function activeL(){
+                list.forEach((item)=>
+                item.classList.remove('active'));
+                this.classList.add('active');
+            }
+            list.forEach((item)=>
+            item.addEventListener('click',activeL))
+        </script>
+        <script>
+        var calculateButton = $('#submit');
+        var result = $('#resultBox');
+
+        calculateButton.click(function () {
+            var first = $('#first_operand').val();
+            var second = $('#second_operand').val();
+            var operator = $('#operators').val();
+            $.ajax(
+                {
+                    type: "GET",
+                    url: "/calculate",
+                    data: {
+                        "firstOperand": first,
+                        "secondOperand": second,
+                        "operator": operator
+
+                    },
+                    success: function (result) {
+                        if (result == "error") {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'invalid input',
+                                showConfirmButton: false,
+                                text: 'Please enter binary numbers in the form of: "0101"'
+
+                            })
+                            setTimeout(function () {
+                                location.reload();
+                            }, 4000);
+                        } else {
+                            $('#resultBox').val(result);
+                            console.log()
+                        }
+                    },
+                    error: function (jqXHR, exception) {
+                        $('#resultBox').text("Failed to get the status");
+                    }
+                });
+
+        });
+        </script>
+        <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+        <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+</body>
 </html>
