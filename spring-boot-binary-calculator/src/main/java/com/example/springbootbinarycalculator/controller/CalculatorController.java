@@ -14,18 +14,29 @@ public class CalculatorController {
     @RequestMapping(value = "/calculate", method = RequestMethod.GET)
     String calculator(@RequestParam("firstOperand") String firstOperand,
                       @RequestParam("secondOperand") String secondOperand,
-                      @RequestParam("operator") String operator) {
+                      @RequestParam("operator") String operator,
+                      @RequestParam("base") String base) {
+
+        int radix = 10;
+
+        if(base.equals("hexadecimal"))
+            radix = 16;
+        if(base.equals("binary"))
+            radix = 2;
+        if(base.equals("octal"))
+            radix = 8;
+
 
         String result = "";
 
         if(operator.equals("addition")){
-            result = BinaryCalculations.binaryAdd(firstOperand, secondOperand);
+            result = BinaryCalculations.add(firstOperand, secondOperand, radix);
         } else if(operator.equals("subtraction")){
-            result = BinaryCalculations.binarySubtract(firstOperand, secondOperand);
+           result = BinaryCalculations.subtract(firstOperand, secondOperand, radix);
         } else if(operator.equals("multiplication")){
-            result = BinaryCalculations.binaryMultiply(firstOperand, secondOperand);
+            result = BinaryCalculations.multiply(firstOperand, secondOperand, radix);
         } else if(operator.equals("division")){
-            result = BinaryCalculations.binaryDivide(firstOperand, secondOperand);
+            result = BinaryCalculations.divide(firstOperand, secondOperand, radix);
         }
 
         return result;

@@ -12,20 +12,20 @@
 <body style="background-color:#3d4152">
         <div class="navigation">
             <div class="menuToggle"></div>
-            <ul>
+            <ul id="basesList">
                 <li class="list"style="--clr:red">
                    <a href="#"title="Home" id="home">
                     <span class="icon"><ion-icon name="home" style="margin-top:12px;"></ion-icon></span>
                     <span class="text">Home</span>
                    </a>
                 </li>
-                <li class="list active"style="--clr:#f44336">
-                    <a href="#"data-toggle="modal" data-target="#converter-modal">
+                <li class="list" style="--clr:#f44336" id="converterli">
+                    <a href="#"data-toggle="modal" data-target="#converter-modal" title="Converter">
                      <span class="icon"><ion-icon name="calculator"style="margin-top:12px;"></ion-icon></span>
                      <span class="text">Converter</span>
                     </a>
                  </li>
-                <li class="list" style="--clr:#ffa117">
+                <li class="list active" style="--clr:#ffa117" id="binaryli">
                     <a href="#" title="Binary" id="binary">
                      <span class="icon"><ion-icon name="calculator"style="margin-top:12px;"></ion-icon></span>
                      <span class="text">Binary</span>
@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="resultBox">
-                    <input type="text" name="resultBox" id="resultBox" readonly>
+                    <input type="text" name="resultBox" id="resultBox" readonly style="text-align:center;">
                     <input type="button" name="steps" id="steps" value="steps" style="width:100px; height:30px; background-color:blue; color:white; cursor:pointer;">
                 </div>
             </div>
@@ -116,7 +116,7 @@
             </div>
         </div>
         <div class="modal-footer" style="justify-content:space-between">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" style="width:400px;">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" style="width:400px;" id="converterCloseButton">Close</button>
           <button type="button" class="btn btn-primary" style=" width:400px;">Calculate</button>
         </div>
       </div>
@@ -171,6 +171,14 @@
             }
             list.forEach((item)=>
             item.addEventListener('click',activeL))
+
+            $('#converterCloseButton').click(function() {
+                list.forEach((item)=>
+                item.classList.remove('active'));
+                var binaryListItem = document.getElementById("binaryli");
+                binaryListItem.classList.add('active');
+            });
+
         </script>
         <script>
         var calculateButton = $('#submit');
@@ -180,6 +188,10 @@
             var first = $('#first_operand').val();
             var second = $('#second_operand').val();
             var operator = $('#operators').val();
+            var base = document.querySelector(".list.active a").id;
+
+
+
             $.ajax(
                 {
                     type: "GET",
@@ -187,7 +199,8 @@
                     data: {
                         "firstOperand": first,
                         "secondOperand": second,
-                        "operator": operator
+                        "operator": operator,
+                        "base" : base
 
                     },
                     success: function (result) {
