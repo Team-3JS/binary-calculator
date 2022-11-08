@@ -172,7 +172,7 @@
             list.forEach((item)=>
             item.addEventListener('click',activeL))
 
-            $('#converterCloseButton').click(function() {
+            $('#converter-modal').on('hidden.bs.modal', function() {
                 list.forEach((item)=>
                 item.classList.remove('active'));
                 var binaryListItem = document.getElementById("binaryli");
