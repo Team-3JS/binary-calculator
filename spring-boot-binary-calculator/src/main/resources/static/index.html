@@ -72,7 +72,7 @@
                 </div>
                 <div class="input">
                     <div class="operand">
-                        <label for="second_operand">First Operand</label><br>
+                        <label for="second_operand">Second Operand</label><br>
                         <input type="text" name="second_operand" id="second_operand" placeholder="01101111..." min="1" required autocomplete="off">
                     </div>
                 </div>
@@ -90,7 +90,7 @@
  
   <!-- Modal -->
   <div class="modal fade" id="converter-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog " role="document">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content cont">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLongTitle">CHANGE BASES</h5>
@@ -100,24 +100,34 @@
         </div>
         <div class="modal-body">
                <div class="input-base">
-                <label for="bases" class="bases">Select base</label><br>
-                <select name="bases" id="bases"style="width:200px;">
-                    <option value="binary">binary</option>
-                    <option value="hexadecimal">hexadecimal</option>
-                    <option value="octal">octal</option>
+                <label for="input-bases" class="bases">Select input base</label><br>
+                <select name="bases" id="input-bases"style="width:200px;">
+                    <option value="binary">Binary</option>
+                    <option value="hexadecimal">Hexadecimal</option>
+                    <option value="octal">Octal</option>
+                    <option value="decimal">Decimal</option>
                 </select>
                </div>
                <div class="input-base">
                 <label for="op1" class="op1">number</label><br>
-                <input type="number" name="op1" id="op1"style="width:200px; ">
+                <input type="text" name="op1" id="op1"style="width:200px; ">
+            </div>
+            <div class = "input-base">
+                <label for="output-bases" class="bases">Select output base</label><br>
+                <select name="output-bases" id="output-bases"style="width:200px;">
+                    <option value="binary">Binary</option>
+                    <option value="hexadecimal">Hexadecimal</option>
+                    <option value="octal">Octal</option>
+                    <option value="decimal">Decimal</option>
+                </select>
             </div>
             <div class="result-base">
-                <textarea name="result-b" id="result-b"rows="10" cols="50" style="margin-left:20px;">result goes here</textarea>
+                <textarea name="result-b" id="result-b"rows="10" cols="50" style="margin-left:20px;" readonly placeholder="Result will be shown here..."></textarea>
             </div>
         </div>
         <div class="modal-footer" style="justify-content:space-between">
           <button type="button" class="btn btn-secondary" data-dismiss="modal" style="width:400px;" id="converterCloseButton">Close</button>
-          <button type="button" class="btn btn-primary" style=" width:400px;">Calculate</button>
+          <button type="button" class="btn btn-primary" style=" width:400px;" id="convertButton">Convert</button>
         </div>
       </div>
     </div>
@@ -226,6 +236,34 @@
                 });
 
         });
+        </script>
+        <script>
+            /*converter script*/
+
+            $('#convertButton').click(function() {
+                var inputBase = $('#input-bases').val();
+                var outputBase = $('#output-bases').val();
+                var num = $('#op1').val();
+
+                $.ajax(
+                    {
+                        type: "GET",
+                        url: "/convert",
+                        data: {
+                            "inputBase" : inputBase,
+                            "outputBase" : outputBase,
+                            "num" : num
+                        },
+                        success: function(result){
+                            $('#result-b').val(result);
+                        },
+                        error: function (jqXHR, exception) {
+                            $('#result-b').text("Failed to get the status");
+                        }
+                    }
+                );
+            });
+
         </script>
         <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
         <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">

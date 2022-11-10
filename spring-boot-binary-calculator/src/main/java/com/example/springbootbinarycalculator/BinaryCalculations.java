@@ -67,7 +67,7 @@ public class BinaryCalculations
         return result;
     }
 
-    public static String toString(String Num, int origBase, int newBase){
+    public static String convert(String Num, int origBase, int newBase){
         return Integer.toString(Integer.parseInt(Num, origBase), newBase);
     }
 

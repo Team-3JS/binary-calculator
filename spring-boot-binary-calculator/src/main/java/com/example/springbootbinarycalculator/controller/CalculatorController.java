@@ -42,5 +42,38 @@ public class CalculatorController {
         return result;
     }
 
+    @RequestMapping(value="/convert", method = RequestMethod.GET)
+    String converter(@RequestParam("inputBase") String inputBase,
+                     @RequestParam("outputBase") String outputBase,
+                     @RequestParam("num") String num){
+
+        String result = "";
+        int inputRadix = 10;
+        int outputRadix = 10;
+
+        if(inputBase.equals("hexadecimal"))
+            inputRadix = 16;
+        if(inputBase.equals("binary"))
+            inputRadix = 2;
+        if(inputBase.equals("octal"))
+            inputRadix = 8;
+        if(inputBase.equals("decimal"))
+            inputRadix = 10;
+
+        if(outputBase.equals("hexadecimal"))
+            outputRadix = 16;
+        if(outputBase.equals("binary"))
+            outputRadix = 2;
+        if(outputBase.equals("octal"))
+            outputRadix = 8;
+        if(outputBase.equals("decimal"))
+            outputRadix = 10;
+
+        result = BinaryCalculations.convert(num, inputRadix, outputRadix);
+
+        return result;
+
+    }
+
 
 }
