@@ -71,5 +71,14 @@ public class BinaryCalculations
         return Integer.toString(Integer.parseInt(Num, origBase), newBase);
     }
 
+    public static boolean isInputValid(String num, int base){
+        try{
+            Integer.parseInt(num, base);
+        } catch(NumberFormatException e){
+            return false;
+        }
+        return true;
+    }
+
 
 }

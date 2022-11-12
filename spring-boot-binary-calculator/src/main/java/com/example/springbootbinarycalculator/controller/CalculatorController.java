@@ -26,6 +26,8 @@ public class CalculatorController {
         if(base.equals("octal"))
             radix = 8;
 
+        if(!(BinaryCalculations.isInputValid(firstOperand, radix) && BinaryCalculations.isInputValid(secondOperand, radix)))
+            return "error";
 
         String result = "";
 
@@ -60,6 +62,16 @@ public class CalculatorController {
         if(inputBase.equals("decimal"))
             inputRadix = 10;
 
+        if(outputBase.equals("all")){
+            String decimalOutput = BinaryCalculations.convert(num, inputRadix, 10);
+            String binaryOutput = BinaryCalculations.convert(num, inputRadix, 2);
+            String octalOutput = BinaryCalculations.convert(num, inputRadix, 8);
+            String hexOutput = BinaryCalculations.convert(num, inputRadix, 16);
+
+            return "Binary: " + binaryOutput + "\nOctal: " + octalOutput + "\nDecimal: " + decimalOutput + "\nHexadecimal: " + hexOutput;
+
+        }
+
         if(outputBase.equals("hexadecimal"))
             outputRadix = 16;
         if(outputBase.equals("binary"))
@@ -68,6 +80,9 @@ public class CalculatorController {
             outputRadix = 8;
         if(outputBase.equals("decimal"))
             outputRadix = 10;
+
+        if(!BinaryCalculations.isInputValid(num, inputRadix))
+            return "error";
 
         result = BinaryCalculations.convert(num, inputRadix, outputRadix);
 

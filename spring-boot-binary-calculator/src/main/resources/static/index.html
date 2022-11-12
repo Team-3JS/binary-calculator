@@ -48,7 +48,7 @@
         <div class="calculation" >
             <div class="normal-calculator">
                 <div class="header">
-                    <h1>PERFORM NORMAL CALCULATIONS</h1>
+                    <h1 id="title">Binary Calculator</h1>
                 </div>
                 <div class="input">
                     <div class="operand">
@@ -110,7 +110,7 @@
                </div>
                <div class="input-base">
                 <label for="op1" class="op1">number</label><br>
-                <input type="text" name="op1" id="op1"style="width:200px; ">
+                <input type="text" name="op1" id="op1"style="width:200px; " autocomplete="off">
             </div>
             <div class = "input-base">
                 <label for="output-bases" class="bases">Select output base</label><br>
@@ -119,6 +119,7 @@
                     <option value="hexadecimal">Hexadecimal</option>
                     <option value="octal">Octal</option>
                     <option value="decimal">Decimal</option>
+                    <option value="all">All</option>
                 </select>
             </div>
             <div class="result-base">
@@ -178,6 +179,18 @@
                 list.forEach((item)=>
                 item.classList.remove('active'));
                 this.classList.add('active');
+
+                var base = document.querySelector(".list.active a").id;
+                var header = document.getElementById('title');
+                if(base == "binary"){
+                    header.textContent = "Binary Calculator";
+                }
+                if(base == "hexadecimal"){
+                    header.textContent = "Hexadecimal Calculator";
+                }
+                if(base == "octal"){
+                    header.textContent = "Octal Calculator";
+                }
             }
             list.forEach((item)=>
             item.addEventListener('click',activeL))
@@ -187,6 +200,7 @@
                 item.classList.remove('active'));
                 var binaryListItem = document.getElementById("binaryli");
                 binaryListItem.classList.add('active');
+                document.getElementById('title').textContent = "Binary Calculator";
             });
 
         </script>
@@ -215,16 +229,26 @@
                     },
                     success: function (result) {
                         if (result == "error") {
+
+                            var digitsString;
+
+                            if(base == "binary"){
+                                digitsString = "0, 1";
+                            }
+                            if(base == "octal"){
+                                digitsString = "0, 1, 2, 3, 4, 5, 6, 7";
+                            }
+                            if(base == "hexadecimal"){
+                                digitsString = "0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f"
+                            }
+
                             Swal.fire({
                                 icon: 'error',
                                 title: 'invalid input',
                                 showConfirmButton: false,
-                                text: 'Please enter binary numbers in the form of: "0101"'
+                                text: 'Please enter ' + base + ' numbers using these digits: ' + digitsString
 
                             })
-                            setTimeout(function () {
-                                location.reload();
-                            }, 4000);
                         } else {
                             $('#resultBox').val(result);
                             console.log()
@@ -254,8 +278,37 @@
                             "outputBase" : outputBase,
                             "num" : num
                         },
+
                         success: function(result){
+                        if(result == "error"){
+
+                            var digitsString;
+
+                            if(inputBase == "binary"){
+                                digitsString = "0, 1";
+                            }
+                            if(inputBase == "octal"){
+                                digitsString = "0, 1, 2, 3, 4, 5, 6, 7";
+                            }
+                            if(inputBase == "hexadecimal"){
+                                digitsString = "0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f";
+                            }
+                            if(inputBase == "decimal"){
+                                digitsString = "0, 1, 2, 3, 4, 5, 6, 7, 8, 9";
+                            }
+
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'invalid input',
+                                showConfirmButton: false,
+                                text: 'Please enter ' + inputBase + ' numbers using these digits: ' + digitsString
+
+                            })
+
+                        } else {
+
                             $('#result-b').val(result);
+                        }
                         },
                         error: function (jqXHR, exception) {
                             $('#result-b').text("Failed to get the status");
