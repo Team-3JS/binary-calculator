@@ -63,6 +63,10 @@ public class CalculatorController {
             inputRadix = 10;
 
         if(outputBase.equals("all")){
+
+            if(!BinaryCalculations.isInputValid(num, inputRadix))
+                return "error";
+
             String decimalOutput = BinaryCalculations.convert(num, inputRadix, 10);
             String binaryOutput = BinaryCalculations.convert(num, inputRadix, 2);
             String octalOutput = BinaryCalculations.convert(num, inputRadix, 8);
