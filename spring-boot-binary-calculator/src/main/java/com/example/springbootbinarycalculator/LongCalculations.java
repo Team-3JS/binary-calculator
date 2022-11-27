@@ -44,4 +44,29 @@ public class LongCalculations {
         }
         return true;
     }
+
+
+    public static String method(String input1, String input2, String operation, String result)
+    {
+        ArrayList<String> input = new ArrayList<String>();
+        switch(operation)
+        {
+            case "switch base":
+                input.add(input1+" switching base to base "+ input2+" = "+ result);
+                break;
+            default:
+                input.add(input1+" "+operation+" "+ input2+" = "+ result);
+                break;
+        }
+        while(input.size() > 5)
+        {
+            input.remove(0);
+        }
+        String ret = "";
+        for(int i = 0; i<input.size();i++)
+        {
+            ret+= input.get(i) + "\n";
+        }
+        return ret;
+    }
 }
