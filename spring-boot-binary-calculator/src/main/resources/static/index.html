@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,208 +8,225 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.5/dist/sweetalert2.all.min.js"></script>
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,300&display=swap" rel="stylesheet">
+    <title>BINARY CALCULATOR</title>
 </head>
-<body style="background-color:#3d4152">
-        <div class="navigation">
-            <div class="menuToggle"></div>
-            <ul id="basesList">
-                <li class="list"style="--clr:red">
-                   <a href="#"title="Home" id="home">
-                    <span class="icon"><ion-icon name="home" style="margin-top:12px;"></ion-icon></span>
-                    <span class="text">Home</span>
-                   </a>
-                </li>
-                <li class="list" style="--clr:#f44336" id="converterli">
-                    <a href="#"data-toggle="modal" data-target="#converter-modal" title="Converter">
-                     <span class="icon"><ion-icon name="calculator"style="margin-top:12px;"></ion-icon></span>
-                     <span class="text">Converter</span>
-                    </a>
-                 </li>
-                <li class="list active" style="--clr:#ffa117" id="binaryli">
-                    <a href="#" title="Binary" id="binary">
-                     <span class="icon"><ion-icon name="calculator"style="margin-top:12px;"></ion-icon></span>
-                     <span class="text">Binary</span>
-                    </a>
-                 </li>
-                 <li class="list" style="--clr:#0fc70f">
-                    <a href="#" title="Hexadecimal" id="hexadecimal">
-                     <span class="icon"><ion-icon name="calculator" style="margin-top:12px;"></ion-icon></span>
-                     <span class="text">Hexadecimal</span>
-                    </a>
-                 </li>
-                 <li class="list" style="--clr:#2196f3">
-                    <a href="#"title="Octal" id="octal">
-                     <span class="icon"><ion-icon name="calculator"style="margin-top:12px;"></ion-icon></span>
-                     <span class="text">Octal</span>
-                    </a>
-                 </li>
-            </ul>
-        </div>
-        <div class="calculation" >
-            <div class="normal-calculator">
-                <div class="header">
-                    <h1 id="title">Binary Calculator</h1>
-                </div>
-                <div class="input">
-                    <div class="operand">
-                        <label for="first_operand">First Operand</label><br>
-                        <input type="text" name="first_operand" id="first_operand" placeholder="01101111..." min="0" required autocomplete="off">
-                    </div>
-                </div>
-                <div class="input">
-                    <div class="operators">
-                        <div class="input">
-                            <label for="operators" class="oprt">Operator</label><br>
-                            <select name="operators" id="operators">
-                                <option value="addition">Addition</option>
-                                <option value="subtraction">Subtraction</option>
-                                <option value="multiplication">Multiplication</option>
-                                <option value="division">Division</option>
-                            </select>
 
+<body style="background-color:white">
+    <div class="navigation">
+        <div class="menuToggle"></div>
+        <ul id="basesList">
+            <li class="list" style="--clr:red">
+                <a href="#" title="Home" id="home">
+                    <span class="icon"><ion-icon name="home" style="margin-top:12px;"></ion-icon></span>
+                    <span class="text">HOME</span>
+                </a>
+            </li>
+            <li class="list" style="--clr:#f44336" id="converterli">
+                <a href="#" data-toggle="modal" data-target="#converter-modal" title="Converter">
+                    <span class="icon"><img class="icons" src="img/converter_icon.png"></span>
+                    <span class="text">CONVERTER</span>
+                </a>
+            </li>
+            <li class="list active" style="--clr:#ffa117" id="binaryli">
+                <a href="#" title="Binary" id="binary">
+                    <span class="icon"><img class="icons" src="img/binary_icon.png"></span>
+                    <span class="text">BINARY</span>
+                </a>
+            </li>
+            <li class="list" style="--clr:#0fc70f">
+                <a href="#" title="Hexadecimal" id="hexadecimal">
+                    <span class="icon"><img class="icons" src="img/hex_icon.png"></span>
+                    <span class="text">HEXADECIMAL</span>
+                </a>
+            </li>
+            <li class="list" style="--clr:#2196f3">
+                <a href="#" title="Octal" id="octal">
+                    <span class="icon"><img class="icons" src="img/oct_icon.png"></span>
+                    <span class="text">OCTAL</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="calculation">
+        <div class="normal-calculator">
+            <div class="header" id="headerbackground">
+                <h1 id="title">BINARY CALCULATOR</h1>
+            </div>
+            <div class="content">
+                <div class="input">
+                    <center>
+                        <div class="operand">
+                            <label for="first_operand">FIRST OPERAND</label><br>
+                            <input type="text" class="oper" name="first_operand" id="first_operand" placeholder="01101111..." min="0" required autocomplete="off">
                         </div>
-                    </div>
+                    </center>
                 </div>
                 <div class="input">
-                    <div class="operand">
-                        <label for="second_operand">Second Operand</label><br>
-                        <input type="text" name="second_operand" id="second_operand" placeholder="01101111..." min="1" required autocomplete="off">
-                    </div>
+                    <center>
+                        <div class="operators">
+                            <label for="operators" class="oprt">OPERATOR</label><br>
+                            <select name="operators" id="operators" class="select">
+                                <option value="addition">ADDITION</option>
+                                <option value="subtraction">SUBSTRACTION</option>
+                                <option value="multiplication">MULTIPLICATION</option>
+                                <option value="division">DIVISION</option>
+                            </select>
+                        </div>
+                    </center>
+                </div>
+                <div class="input">
+                    <center>
+                        <div class="operand">
+                            <label for="second_operand">SECOND OPERAND</label><br>
+                            <input type="text" class="oper" name="second_operand" id="second_operand" placeholder="01101111..." min="1" required autocomplete="off">
+                        </div>
+                    </center>
                 </div>
                 <div class="result">
-                    <div class="result_calc">
-                        <input type="submit" name="submit" id="submit" min="1" value="calculate">
-                    </div>
+                    <center>
+                        <div class="result_calc">
+                            <input type="submit" name="submit" id="submit" min="1" value="CALCULATE">
+                        </div>
+                    </center>
                 </div>
                 <div class="resultBox">
-                    <input type="text" name="resultBox" id="resultBox" readonly style="text-align:center;">
-                    <!--<input type="button" name="steps" id="steps" value="steps" style="width:100px; height:30px; background-color:blue; color:white; cursor:pointer;">-->
+                    <center>
+                        <input type="text" name="resultBox" id="resultBox" readonly style="text-align:center;">
+                        <!--<input type="button" name="steps" id="steps" value="steps" style="width:100px; height:30px; background-color:blue; color:white; cursor:pointer;">-->
+                    </center>
                 </div>
             </div>
         </div>
- 
-  <!-- Modal -->
-  <div class="modal fade" id="converter-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content cont">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">CHANGE BASES</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="converter-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content cont">
+                <div class="modal-header" style="background-color: #f44336">
+                    <h5 class="modal-title" id="exampleModalLongTitle">CHANGE BASES</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
-        <div class="modal-body">
-               <div class="input-base">
-                <label for="input-bases" class="bases">Select input base</label><br>
-                <select name="bases" id="input-bases"style="width:200px;">
-                    <option value="binary">Binary</option>
-                    <option value="hexadecimal">Hexadecimal</option>
-                    <option value="octal">Octal</option>
-                    <option value="decimal">Decimal</option>
+                </div>
+                <div class="modal-body">
+                    <div class="input-base">
+                        <label for="input-bases" class="bases">SELECT INPUT BASE</label><br>
+                        <select name="bases" id="input-bases" style="width:200px;">
+                    <option value="binary">BINARY</option>
+                    <option value="hexadecimal">HEXADECIMAL</option>
+                    <option value="octal">OCTAL</option>
+                    <option value="decimal">DECIMAL</option>
                 </select>
-               </div>
-               <div class="input-base">
-                <label for="op1" class="op1">number</label><br>
-                <input type="text" name="op1" id="op1"style="width:200px; " autocomplete="off">
-            </div>
-            <div class = "input-base">
-                <label for="output-bases" class="bases">Select output base</label><br>
-                <select name="output-bases" id="output-bases"style="width:200px;">
-                    <option value="binary">Binary</option>
-                    <option value="hexadecimal">Hexadecimal</option>
-                    <option value="octal">Octal</option>
-                    <option value="decimal">Decimal</option>
-                    <option value="all">All</option>
+                    </div>
+                    <div class="input-base">
+                        <label for="op1" class="op1">NUMBER</label><br>
+                        <input type="text" name="op1" id="op1" style="width:200px; " autocomplete="off">
+                    </div>
+                    <div class="input-base">
+                        <label for="output-bases" class="bases">SELECT OUTPUT BASE</label><br>
+                        <select name="output-bases" id="output-bases" style="width:200px;">
+                    <option value="binary">BINARY</option>
+                    <option value="hexadecimal">HEXADECIMAL</option>
+                    <option value="octal">OCTAL</option>
+                    <option value="decimal">DECIMAL</option>
+                    <option value="all">ALL</option>
                 </select>
-            </div>
-            <div class="result-base">
-                <textarea name="result-b" id="result-b"rows="10" cols="50" style="margin-left:20px;" readonly placeholder="Result will be shown here..."></textarea>
+                    </div>
+                    <div class="result-base">
+                        <textarea name="result-b" id="result-b" rows="10" cols="50" style="margin-left:20px;" readonly placeholder="Result will be shown here..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer" style="justify-content:space-between">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="width:400px;" id="converterCloseButton">CLOSE</button>
+                    <button type="button" class="btn btn-primary" style=" width:400px;" id="convertButton">CONVERT</button>
+                </div>
             </div>
         </div>
-        <div class="modal-footer" style="justify-content:space-between">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" style="width:400px;" id="converterCloseButton">Close</button>
-          <button type="button" class="btn btn-primary" style=" width:400px;" id="convertButton">Convert</button>
-        </div>
-      </div>
     </div>
-  </div>
 
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script>
-            var home = $('#home');
-            var binary = $('#binary');
-            var hex = $('#hexadecimal');
-            var octal = $('#octal');
-            var moda = $('#converter-modal')
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        var home = $('#home');
+        var binary = $('#binary');
+        var hex = $('#hexadecimal');
+        var octal = $('#octal');
+        var moda = $('#converter-modal')
 
-            home.on('click',function(){
-                location.reload()
-            })
-            var op1 = $("#first_operand");
-            console.log(op1.val());
-            var op2 = $("#second_operand");
-            console.log(op2.val());
+        home.on('click', function() {
+            location.reload()
+        })
+        var op1 = $("#first_operand");
+        console.log(op1.val());
+        var op2 = $("#second_operand");
+        console.log(op2.val());
 
 
-           console.log(add(parseInt(op1.val()),parseInt(op2.val())))
-            
-          // result. val()
-          // alert(add(parseInt(op1.val()),parseInt(op2.val())))
-          /* binary.on('click',function(){
-               moda.modal({
-                  show:true
-               });
-           })*/
+        console.log(add(parseInt(op1.val()), parseInt(op2.val())))
 
-    function add(num1, num2){
+        // result. val()
+        // alert(add(parseInt(op1.val()),parseInt(op2.val())))
+        /* binary.on('click',function(){
+             moda.modal({
+                show:true
+             });
+         })*/
+
+        function add(num1, num2) {
             return num1 + num2;
-    }
-            
-        </script>
-       
-        <script>
-            const menuToggle = document.querySelector('.menuToggle');
-            const navigation = document.querySelector('.navigation');
-            menuToggle.onclick = function(){
-                navigation.classList.toggle('open');
-            }
-            const list = document.querySelectorAll('.list');
-            function activeL(){
-                list.forEach((item)=>
+        }
+    </script>
+
+    <script>
+        const menuToggle = document.querySelector('.menuToggle');
+        const navigation = document.querySelector('.navigation');
+        menuToggle.onclick = function() {
+            navigation.classList.toggle('open');
+        }
+        const list = document.querySelectorAll('.list');
+
+        function activeL() {
+            list.forEach((item) =>
                 item.classList.remove('active'));
-                this.classList.add('active');
+            this.classList.add('active');
 
-                var base = document.querySelector(".list.active a").id;
-                var header = document.getElementById('title');
-                if(base == "binary"){
-                    header.textContent = "Binary Calculator";
-                }
-                if(base == "hexadecimal"){
-                    header.textContent = "Hexadecimal Calculator";
-                }
-                if(base == "octal"){
-                    header.textContent = "Octal Calculator";
-                }
+            var base = document.querySelector(".list.active a").id;
+            var header = document.getElementById('title');
+            var headerbackground = document.getElementById('headerbackground');
+
+            if (base == "binary") {
+                header.textContent = "BINARY CALCULATOR";
+                headerbackground.style.backgroundColor = '#ffa117';
             }
-            list.forEach((item)=>
-            item.addEventListener('click',activeL))
+            if (base == "hexadecimal") {
+                header.textContent = "HEXADECIMAL CALCULATOR";
+                headerbackground.style.backgroundColor = '#0fc70f';
+            }
+            if (base == "octal") {
+                header.textContent = "OCTAL CALCULATOR";
+                headerbackground.style.backgroundColor = '#2196f3';
+            }
+        }
+        list.forEach((item) =>
+            item.addEventListener('click', activeL))
 
-            $('#converter-modal').on('hidden.bs.modal', function() {
-                list.forEach((item)=>
+        $('#converter-modal').on('hidden.bs.modal', function() {
+            list.forEach((item) =>
                 item.classList.remove('active'));
-                var binaryListItem = document.getElementById("binaryli");
-                binaryListItem.classList.add('active');
-                document.getElementById('title').textContent = "Binary Calculator";
-            });
-
-        </script>
-        <script>
+            var binaryListItem = document.getElementById("binaryli");
+            binaryListItem.classList.add('active');
+            document.getElementById('title').textContent = "BINARY CALCULATOR";
+        });
+    </script>
+    <script>
         var calculateButton = $('#submit');
         var result = $('#resultBox');
 
-        calculateButton.click(function () {
+        calculateButton.click(function() {
             var first = $('#first_operand').val();
             var second = $('#second_operand').val();
             var operator = $('#operators').val();
@@ -216,109 +234,106 @@
 
 
 
-            $.ajax(
-                {
-                    type: "GET",
-                    url: "/calculate",
-                    data: {
-                        "firstOperand": first,
-                        "secondOperand": second,
-                        "operator": operator,
-                        "base" : base
+            $.ajax({
+                type: "GET",
+                url: "/calculate",
+                data: {
+                    "firstOperand": first,
+                    "secondOperand": second,
+                    "operator": operator,
+                    "base": base
 
-                    },
-                    success: function (result) {
-                        if (result == "error") {
+                },
+                success: function(result) {
+                    if (result == "error") {
 
-                            var digitsString;
+                        var digitsString;
 
-                            if(base == "binary"){
-                                digitsString = "0, 1";
-                            }
-                            if(base == "octal"){
-                                digitsString = "0, 1, 2, 3, 4, 5, 6, 7";
-                            }
-                            if(base == "hexadecimal"){
-                                digitsString = "0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f"
-                            }
-
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'invalid input',
-                                showConfirmButton: false,
-                                text: 'Please enter ' + base + ' numbers using these digits: ' + digitsString
-
-                            })
-                        } else {
-                            $('#resultBox').val(result);
-                            console.log()
+                        if (base == "binary") {
+                            digitsString = "0, 1";
                         }
-                    },
-                    error: function (jqXHR, exception) {
-                        $('#resultBox').text("Failed to get the status");
+                        if (base == "octal") {
+                            digitsString = "0, 1, 2, 3, 4, 5, 6, 7";
+                        }
+                        if (base == "hexadecimal") {
+                            digitsString = "0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f"
+                        }
+
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'invalid input',
+                            showConfirmButton: false,
+                            text: 'Please enter ' + base + ' numbers using these digits: ' + digitsString
+
+                        })
+                    } else {
+                        $('#resultBox').val(result);
+                        console.log()
                     }
-                });
-
-        });
-        </script>
-        <script>
-            /*converter script*/
-
-            $('#convertButton').click(function() {
-                var inputBase = $('#input-bases').val();
-                var outputBase = $('#output-bases').val();
-                var num = $('#op1').val();
-
-                $.ajax(
-                    {
-                        type: "GET",
-                        url: "/convert",
-                        data: {
-                            "inputBase" : inputBase,
-                            "outputBase" : outputBase,
-                            "num" : num
-                        },
-
-                        success: function(result){
-                        if(result == "error"){
-
-                            var digitsString;
-
-                            if(inputBase == "binary"){
-                                digitsString = "0, 1";
-                            }
-                            if(inputBase == "octal"){
-                                digitsString = "0, 1, 2, 3, 4, 5, 6, 7";
-                            }
-                            if(inputBase == "hexadecimal"){
-                                digitsString = "0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f";
-                            }
-                            if(inputBase == "decimal"){
-                                digitsString = "0, 1, 2, 3, 4, 5, 6, 7, 8, 9";
-                            }
-
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'invalid input',
-                                showConfirmButton: false,
-                                text: 'Please enter ' + inputBase + ' numbers using these digits: ' + digitsString
-
-                            })
-
-                        } else {
-
-                            $('#result-b').val(result);
-                        }
-                        },
-                        error: function (jqXHR, exception) {
-                            $('#result-b').text("Failed to get the status");
-                        }
-                    }
-                );
+                },
+                error: function(jqXHR, exception) {
+                    $('#resultBox').text("Failed to get the status");
+                }
             });
 
-        </script>
-        <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-        <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+        });
+    </script>
+    <script>
+        /*converter script*/
+
+        $('#convertButton').click(function() {
+            var inputBase = $('#input-bases').val();
+            var outputBase = $('#output-bases').val();
+            var num = $('#op1').val();
+
+            $.ajax({
+                type: "GET",
+                url: "/convert",
+                data: {
+                    "inputBase": inputBase,
+                    "outputBase": outputBase,
+                    "num": num
+                },
+
+                success: function(result) {
+                    if (result == "error") {
+
+                        var digitsString;
+
+                        if (inputBase == "binary") {
+                            digitsString = "0, 1";
+                        }
+                        if (inputBase == "octal") {
+                            digitsString = "0, 1, 2, 3, 4, 5, 6, 7";
+                        }
+                        if (inputBase == "hexadecimal") {
+                            digitsString = "0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f";
+                        }
+                        if (inputBase == "decimal") {
+                            digitsString = "0, 1, 2, 3, 4, 5, 6, 7, 8, 9";
+                        }
+
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'invalid input',
+                            showConfirmButton: false,
+                            text: 'Please enter ' + inputBase + ' numbers using these digits: ' + digitsString
+
+                        })
+
+                    } else {
+
+                        $('#result-b').val(result);
+                    }
+                },
+                error: function(jqXHR, exception) {
+                    $('#result-b').text("Failed to get the status");
+                }
+            });
+        });
+    </script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 </body>
+
 </html>
