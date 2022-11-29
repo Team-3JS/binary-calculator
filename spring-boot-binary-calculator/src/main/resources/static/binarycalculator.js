@@ -96,4 +96,5 @@ window.onload = () => {
       displayRes();
     }
   });
+
 };

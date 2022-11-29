@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="spring-boot-hello-world-0.0.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/spring-boot-binary-calculator/target/spring-boot-hello-world-0.0.1-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
