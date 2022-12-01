@@ -257,13 +257,6 @@
         position: relative;
         top: -90px;
     }
-
-    #memory-box{
-        width:540px;
-        height: 200px;
-        border-radius: 6px;
-        margin-left:10px;
-    }
     
     .input-base {
         width: 200px;
@@ -302,6 +295,17 @@
         height: 100px;
         border-radius: 6px;
     }
+
+     .memory textarea{
+        border-radius: 6px;
+        width: 540px;
+        height: 150px;
+     }
+
+        .memory{
+        grid-column-start: 1;
+        grid-column-end: 4;
+     }
     
     .icons {
         width: 40px;
